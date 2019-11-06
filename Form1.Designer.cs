@@ -60,6 +60,7 @@
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.button31 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -303,7 +304,7 @@
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(619, 12);
+            this.button24.Location = new System.Drawing.Point(621, 35);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(75, 85);
             this.button24.TabIndex = 24;
@@ -364,7 +365,7 @@
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(713, 12);
+            this.button30.Location = new System.Drawing.Point(713, 35);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(75, 85);
             this.button30.TabIndex = 30;
@@ -381,13 +382,27 @@
             this.richTextBox2.Text = "";
             this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
+            // button31
+            // 
+            this.button31.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button31.ForeColor = System.Drawing.Color.Red;
+            this.button31.Location = new System.Drawing.Point(621, 1);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(75, 28);
+            this.button31.TabIndex = 32;
+            this.button31.Text = "X";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.CancelButton = this.button31;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.button31);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button30);
             this.Controls.Add(this.button29);
@@ -420,10 +435,13 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.KeyPreview = true;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Calculator";
+            this.TransparencyKey = System.Drawing.Color.Red;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -463,6 +481,7 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button31;
     }
 }
 

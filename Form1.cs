@@ -35,6 +35,10 @@ namespace Calculator_Desktop
             {
                 ot += v;
             });
+            if(inputNumber == "0")
+            {
+                return "0";
+            }
             return ot;
         }
 
@@ -228,6 +232,10 @@ namespace Calculator_Desktop
         public double GetNumberFromInputDecimal(string input)
         {
 
+            if(input == "")
+            {
+                return 0;
+            }
             if (input.Contains("-"))
             {
                 double value = Convert.ToDouble(input.Substring(1));
@@ -240,7 +248,10 @@ namespace Calculator_Desktop
         }
         public double GetNumberFromInputBinary(string input)
         {
-
+            if (input.Length == 2)
+            {
+                return 0;
+            }
             if (input.Contains(":"))
             {
                 double value = Convert.ToDouble(input.Substring(2));
@@ -290,8 +301,8 @@ namespace Calculator_Desktop
                     value2 = GetDecimal(GetNumberFromInputBinary(richTextBox1.Text));
                     if (richTextBox1.Text[0] == '1')
                     {
-                        var changedNegative = "-" + value1;
-                        value2 = Convert.ToDouble(changedNegative);
+                        var changedNegative = "-" + value2.ToString();
+                        value2 = Convert.ToDouble(changedNegative.ToString());
                     }
                 }
                 else
@@ -299,8 +310,8 @@ namespace Calculator_Desktop
                     value2 = GetNumberFromInputDecimal(richTextBox1.Text);
                     if (richTextBox1.Text.Contains('-'))
                     {
-                        var changedNegative = "-" + value1;
-                        value2 = Convert.ToDouble(changedNegative);
+                        var changedNegative = "-" + value1.ToString();
+                        value2 = Convert.ToDouble(changedNegative.ToString());
 
                     }
                 }
@@ -309,8 +320,8 @@ namespace Calculator_Desktop
                     value1 = GetDecimal(GetNumberFromInputBinary(PreviousValue));
                     if (PreviousValue[0] == '1')
                     {
-                        var changedNegative = "-" + value2;
-                        value1 = Convert.ToDouble(changedNegative);
+                        var changedNegative = "-" + value2.ToString();
+                        value1 = Convert.ToDouble(changedNegative.ToString());
                     }
                 }
                 else
@@ -318,8 +329,8 @@ namespace Calculator_Desktop
                     value1 = GetNumberFromInputDecimal(PreviousValue);
                     if (PreviousValue.Contains('-'))
                     {
-                        var changedNegative = "-" + value2;
-                        value1 = Convert.ToDouble(changedNegative);
+                        var changedNegative = "-" + value1.ToString();
+                        value1 = Convert.ToDouble(changedNegative.ToString());
                     }
                 }
             }
@@ -509,10 +520,14 @@ namespace Calculator_Desktop
                     }
                     break;
                 case "&&":
+                    value3 = Convert.ToInt32(value1) & Convert.ToInt32(value2); 
                     break;
                 case "||":
+                    value3 = Convert.ToInt32(value1) | Convert.ToInt32(value2);
                     break;
                 case "^":
+
+                    value3 = ~ Convert.ToInt32(value1);
                     break;
 
             }
@@ -615,6 +630,11 @@ namespace Calculator_Desktop
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
