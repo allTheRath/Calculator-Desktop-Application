@@ -152,6 +152,7 @@ namespace Calculator_Desktop
         private void button5_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
+            richTextBox2.Text = "";
 
         }
 
@@ -203,21 +204,24 @@ namespace Calculator_Desktop
             {
                 if (richTextBox1.Text[0] == '1')
                 {
-                    richTextBox1.Text = "-" + GetDecimal(richTextBox1.Text.Substring(2));
+                    PreviousValue = "-" + GetDecimal(richTextBox1.Text.Substring(2));
                 }
                 else
                 {
-                    richTextBox1.Text = GetDecimal(richTextBox1.Text.Substring(2));
-
+                    PreviousValue = GetDecimal(richTextBox1.Text.Substring(2));
                 }
+                richTextBox1.Text = PreviousValue;
             }
+            
         }
 
         private void button30_Click(object sender, EventArgs e)
         {
-            if (richTextBox1.Text != "" && (richTextBox1.Text.Length == 1 && richTextBox1.Text[0] != '-'))
+            if (richTextBox1.Text != "" && richTextBox1.Text != "-")
             {
                 PreviousValue = richTextBox1.Text;
+                richTextBox2.Text += "\n" + PreviousValue;
+                richTextBox1.Text = "";
             }
         }
 
@@ -255,7 +259,10 @@ namespace Calculator_Desktop
 
         private void SetTextBoxValues(string Op)
         {
-            PreviousValue = richTextBox1.Text;
+            if (richTextBox1.Text != "")
+            {
+                PreviousValue = richTextBox1.Text;
+            }
             richTextBox2.Text = richTextBox2.Text + "\n" + richTextBox1.Text + " " + Op + " ";
             richTextBox1.Text = "";
         }
@@ -321,6 +328,39 @@ namespace Calculator_Desktop
                 exceptionAccured = true;
                 ExceptionMessage = ex.Message;
             }
+
+            if (exceptionAccured)
+            {
+                richTextBox2.Text = ExceptionMessage;
+                ExceptionMessage = "";
+                richTextBox1.Text = "";
+                Op = "";
+            }
+            value3 = Calculation(value1, value2);
+
+            if (IsItBinary)
+            {
+                string output = "";
+                if (value3 < 0)
+                {
+                    output = "1:" + GetBinary(value3.ToString());
+                }
+                else
+                {
+                    output = "0:" + GetBinary(value3.ToString());
+                }
+
+                richTextBox1.Text = output;
+            }
+
+
+            PreviousValue = richTextBox1.Text;
+        }
+
+        private double Calculation(double value1, double value2)
+        {
+            bool exceptionAccured = false;
+            double value3 = 0;
 
             string tempValue2 = richTextBox1.Text;
 
@@ -476,10 +516,19 @@ namespace Calculator_Desktop
                     break;
 
             }
-            richTextBox1.Text = value3.ToString();
+            if (!exceptionAccured)
+            {
+                richTextBox1.Text = value3.ToString();
+            }
+            else
+            {
+                richTextBox2.Text = ExceptionMessage;
+                ExceptionMessage = "";
+                richTextBox1.Text = "";
+                Op = "";
+            }
             SetAnsToTextBoxes(tempValue2 + "=" + value3.ToString());
-
-
+            return value3;
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -502,26 +551,41 @@ namespace Calculator_Desktop
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Op = "x^Pow";
-            SetTextBoxValues(Op);
+            if (richTextBox1.Text != "" && richTextBox1.Text != "0")
+            {
+                Op = "x^Pow";
+                SetTextBoxValues(Op);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Op = "1/x";
-            SetTextBoxValues(Op);
+            if (richTextBox1.Text != "" && richTextBox1.Text != "0")
+            {
+                Op = "1/x";
+                SetTextBoxValues(Op);
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Op = "x^2";
-            SetTextBoxValues(Op);
+            if (richTextBox1.Text != "" && richTextBox1.Text != "0")
+            {
+                Op = "x^2";
+                SetTextBoxValues(Op);
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Op = "sqrt";
-            SetTextBoxValues(Op);
+            if (richTextBox1.Text != "" && richTextBox1.Text != "0")
+            {
+                Op = "sqrt";
+                SetTextBoxValues(Op);
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
