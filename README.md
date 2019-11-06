@@ -6,9 +6,9 @@
 
 This calculator is a standard calculator of maths operations.
 ## Images!
-[![open](/Image/image1.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
-[![open](/Image/click.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
-[![open](/Image/op.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
-[![open](/Image/ans.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
-[![open](/Image/continue.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
-[![open](/Image/clear.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/image1.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/click.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/op.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/ans.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/continue.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
+[![open](/Images/clear.PNG)](https://github.com/allTheRath//Calculator-Desktop-Application.git)
